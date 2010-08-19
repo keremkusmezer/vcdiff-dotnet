@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcdcom", "vcdcom\vcdcom.vcproj", "{A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcdcom", "google\vsprojects\vcdcom\vcdcom.vcproj", "{A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcddec", "vcddec\vcddec.vcproj", "{1066F2E6-3F29-4D3D-9BBA-FD1D360099DD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcddec", "google\vsprojects\vcddec\vcddec.vcproj", "{1066F2E6-3F29-4D3D-9BBA-FD1D360099DD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246} = {A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcdenc", "vcdenc\vcdenc.vcproj", "{C498DA26-B014-44BD-A387-EB6C3CE16FCF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcdenc", "google\vsprojects\vcdenc\vcdenc.vcproj", "{C498DA26-B014-44BD-A387-EB6C3CE16FCF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246} = {A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246}
 	EndProjectSection
