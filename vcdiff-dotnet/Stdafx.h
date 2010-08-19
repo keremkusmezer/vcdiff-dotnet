@@ -4,6 +4,7 @@
 
 #pragma once
 
+#pragma unmanaged
 #include <stddef.h>  // size_t
 
 #include <memory>
@@ -12,4 +13,5 @@
 
 #include "google/vcdecoder.h"
 #include "google/vcencoder.h"
+#pragma managed
 

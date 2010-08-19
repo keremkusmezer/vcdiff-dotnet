@@ -3,6 +3,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::IO;
 
 namespace vcdiffdotnet {
 
@@ -98,5 +99,9 @@ namespace vcdiffdotnet {
 		void Patch(System::IO::Stream ^sourceStream,
 				   System::IO::Stream ^patchStream,
 				   System::IO::Stream ^targetStream);
+
+	private:
+		bool WriteOutput(Stream^ stream, cli::array<Byte>^ bytes);
+		bool ReadInput(Stream^ targetStream, cli::array<Byte>^ inBuff, size_t *bytes_read);
 	};
 }

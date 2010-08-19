@@ -4,6 +4,7 @@
 	Version="9,00"
 	Name="vcdenc"
 	ProjectGUID="{C498DA26-B014-44BD-A387-EB6C3CE16FCF}"
+	RootNamespace="vcdenc"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -48,7 +49,7 @@
 				UsePrecompiledHeader="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="4"
 			/>
 			<Tool
