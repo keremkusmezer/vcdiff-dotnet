@@ -4,6 +4,7 @@
 	Version="9,00"
 	Name="vcdcom"
 	ProjectGUID="{A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246}"
+	RootNamespace="vcdcom"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -171,10 +172,6 @@
 			</File>
 			<File
 				RelativePath=".\stdint.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\src\testing.h"
 				>
 			</File>
 			<File
