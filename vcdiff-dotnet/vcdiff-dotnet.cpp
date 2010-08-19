@@ -11,6 +11,11 @@ using namespace System::Runtime::InteropServices;
 
 namespace vcdiffdotnet {
 
+	VCDiff::VCDiff()
+	{
+		this->setting = gcnew Setting();
+	}
+
 	VCDiff::VCDiff(Setting ^setting)
 	{
 		this->setting = setting;
@@ -74,6 +79,7 @@ namespace vcdiffdotnet {
 			throw gcnew Exception(L"StartEncoding(...)");
 		cli::array<Byte>^ bytes = gcnew cli::array<Byte>(size);
 		Marshal::Copy(IntPtr((void *)buff), bytes, 0, size);
+		delete[] buff;
 		
 		cli::array<Byte>^ inBuff = gcnew cli::array<Byte>(this->setting->BufferSize);			
 		size_t bytes_read = 0;
@@ -84,37 +90,42 @@ namespace vcdiffdotnet {
 			if (!ReadInput(targetStream, inBuff, &bytes_read))
 				throw gcnew Exception(L"ReadInput(...)");
 
-			bool result;
-			IntPtr ptrTargetFile(Marshal::AllocHGlobal(bytes_read)); 
-			try
+			if(bytes_read > 0)
 			{
-				Marshal::Copy(inBuff, 0, ptrTargetFile, bytes_read);
-				
-				result = vcdiffWrapper->EncodeChunk(
-							(const char*)ptrTargetFile.ToPointer(), 
-							static_cast<size_t>(bytes_read),
-							&buff, &size);
-			}
-			finally
-			{
-				Marshal::FreeHGlobal(ptrTargetFile);
-			}
+				bool result;
+				IntPtr ptrTargetFile(Marshal::AllocHGlobal(bytes_read)); 
+				try
+				{
+					Marshal::Copy(inBuff, 0, ptrTargetFile, bytes_read);
+					
+					result = vcdiffWrapper->EncodeChunk(
+								(const char*)ptrTargetFile.ToPointer(), 
+								static_cast<size_t>(bytes_read),
+								&buff, &size);
+				}
+				finally
+				{
+					Marshal::FreeHGlobal(ptrTargetFile);
+				}
 
-			if(!result)
-			{
-				throw gcnew Exception(L"EncodeChunk(...)");
+				if(!result)
+				{
+					throw gcnew Exception(L"EncodeChunk(...)");
+				}
+
+				bytes = gcnew cli::array<Byte>(size);
+				Marshal::Copy(IntPtr((void *)buff), bytes, 0, size);
+				delete[] buff;
 			}
-
-			cli::array<Byte>^ bytes = gcnew cli::array<Byte>(size);
-			Marshal::Copy(IntPtr((void *)buff), bytes, 0, size);
-
 		} while (bytes_read != 0);
 
 		if(!vcdiffWrapper->FinishEncoding(&buff, &size))
 			throw gcnew Exception(L"FinishEncoding(...)");
 
 		bytes = gcnew cli::array<Byte>(size);
-		Marshal::Copy(IntPtr((void *)buff), bytes, 0, size);
+		Marshal::Copy(IntPtr((void *)buff), bytes, 0, size);				
+		delete[] buff;
+
 		if(!WriteOutput(patchStream, bytes))
 		{
 			throw gcnew Exception(L"WriteOutput(...)");

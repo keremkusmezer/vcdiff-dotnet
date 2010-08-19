@@ -89,6 +89,7 @@ namespace vcdiffdotnet {
 		Setting ^setting;
 
 	public:
+		VCDiff();
 		VCDiff(Setting ^setting);
 		~VCDiff();
 

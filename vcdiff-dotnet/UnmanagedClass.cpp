@@ -88,7 +88,8 @@ namespace vcdiffdotnet {
 		bool result = encoder->StartEncoding(&output);
 		if(result)
 		{
-			*buff = output.c_str();
+			*buff = new char[output.size()];
+			memcpy((void*)*buff, output.c_str(), output.size());
 			*size = static_cast<size_t>(output.size());
 			return true;
 		}
@@ -101,7 +102,8 @@ namespace vcdiffdotnet {
 		bool result = encoder->EncodeChunk(data, len, &output);
 		if(result)
 		{
-			*buff = output.c_str();
+			*buff = new char[output.size()];
+			memcpy((void*)*buff, output.c_str(), output.size());
 			*size = static_cast<size_t>(output.size());
 			return true;
 		}
@@ -114,7 +116,8 @@ namespace vcdiffdotnet {
 		bool result = encoder->FinishEncoding(&output);
 		if(result)
 		{
-			*buff = output.c_str();
+			*buff = new char[output.size()];
+			memcpy((void*)*buff, output.c_str(), output.size());
 			*size = static_cast<size_t>(output.size());
 			return true;
 		}
@@ -150,7 +153,8 @@ namespace vcdiffdotnet {
 		bool result = decoder->DecodeChunk(data, len, &output);
 		if(result)
 		{
-			*buff = output.c_str();
+			*buff = new char[output.size()];
+			memcpy((void*)*buff, output.c_str(), output.size());
 			*size = static_cast<size_t>(output.size());
 			return true;
 		}
