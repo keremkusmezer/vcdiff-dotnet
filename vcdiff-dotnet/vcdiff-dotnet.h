@@ -12,14 +12,14 @@ namespace vcdiffdotnet {
 	private:
 		static const size_t kDefaultMaxTargetSize = 1 << 26;      // 64 MB
 
-		__int64 buffer_size;
+		int buffer_size;
 		bool allow_vcd_target;
 		bool checksum;
 		bool interleaved;
 		bool json;
 		bool target_matches;
-		__int64 max_target_file_size;
-		__int64 max_target_window_size;
+		int max_target_file_size;
+		int max_target_window_size;
 
 	public:
 		Setting()
@@ -34,10 +34,10 @@ namespace vcdiffdotnet {
 			max_target_window_size = kDefaultMaxTargetSize;
 		}
 
-		property __int64 BufferSize
+		property int BufferSize
 		{
-			__int64 get() { return buffer_size; }
-			void set(__int64 value) { buffer_size = value; }
+			int get() { return buffer_size; }
+			void set(int value) { buffer_size = value; }
 		}
 
 		property bool AllowVcdTarget
@@ -70,16 +70,16 @@ namespace vcdiffdotnet {
 			void set(bool value) { target_matches = value; }
 		}
 
-		property __int64 MaxTargetFileSize
+		property int MaxTargetFileSize
 		{
-			__int64 get() { return max_target_file_size; }
-			void set(__int64 value) { max_target_file_size = value; }
+			int get() { return max_target_file_size; }
+			void set(int value) { max_target_file_size = value; }
 		}
 		
-		property __int64 MaxTargetWindowSize
+		property int MaxTargetWindowSize
 		{
-			__int64 get() { return max_target_window_size; }
-			void set(__int64 value) { max_target_window_size = value; }
+			int get() { return max_target_window_size; }
+			void set(int value) { max_target_window_size = value; }
 		}
 	};
 
