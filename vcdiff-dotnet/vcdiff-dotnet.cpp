@@ -191,6 +191,8 @@ namespace vcdiffdotnet {
 
 		vcdiffWrapper->InitDecoder();
 
+		vcdiffWrapper->StartDecoding();
+
 		cli::array<Byte>^ inBuff = gcnew cli::array<Byte>(this->setting->BufferSize);			
 		size_t bytes_read = 0;
 
@@ -235,6 +237,7 @@ namespace vcdiffdotnet {
 			}
 			if (!WriteOutput(targetStream, bytes)) 
 				throw gcnew Exception(L"FinishDecoding()");
+			bytes = gcnew cli::array<Byte>(0);
 		} while (bytes_read != 0);
 		
 		if (!vcdiffWrapper->FinishDecoding())
