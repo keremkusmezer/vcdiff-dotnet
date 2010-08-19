@@ -207,6 +207,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\UnmanagedClass.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\vcdiff-dotnet.cpp"
 				>
 			</File>
@@ -222,6 +226,10 @@
 			</File>
 			<File
 				RelativePath=".\Stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\UnmanagedClass.h"
 				>
 			</File>
 			<File

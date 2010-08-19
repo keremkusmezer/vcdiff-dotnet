@@ -19,6 +19,7 @@ namespace vcdiffdotnet {
 						System::IO::Stream ^targetStream, 
 						System::IO::Stream ^patchStream)
 	{
+
 	};
 
 	void VCDiff::Patch(System::IO::Stream ^sourceStream, 

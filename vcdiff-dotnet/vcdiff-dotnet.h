@@ -1,8 +1,5 @@
 // vcdiff-dotnet.h
 
-#include "google/vcdecoder.h"
-#include "google/vcencoder.h"
-
 #pragma once
 
 using namespace System;
