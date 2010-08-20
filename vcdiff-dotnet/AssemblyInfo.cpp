@@ -14,9 +14,9 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyTitleAttribute("vcdiffdotnet")];
 [assembly:AssemblyDescriptionAttribute("")];
 [assembly:AssemblyConfigurationAttribute("")];
-[assembly:AssemblyCompanyAttribute("TOSHIBA")];
+[assembly:AssemblyCompanyAttribute("HomeWork")];
 [assembly:AssemblyProductAttribute("vcdiffdotnet")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c) TOSHIBA 2010")];
+[assembly:AssemblyCopyrightAttribute("Copyright (c) HomeWork 2010")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 

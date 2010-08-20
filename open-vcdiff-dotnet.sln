@@ -14,6 +14,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcdenc", "google\vsprojects
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vcdiff-dotnet", "vcdiff-dotnet\vcdiff-dotnet.vcproj", "{C9F57B3E-7C3E-4AED-B1F9-EA446CBFD24C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C498DA26-B014-44BD-A387-EB6C3CE16FCF} = {C498DA26-B014-44BD-A387-EB6C3CE16FCF}
+		{1066F2E6-3F29-4D3D-9BBA-FD1D360099DD} = {1066F2E6-3F29-4D3D-9BBA-FD1D360099DD}
+		{A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246} = {A49D16EE-E69E-4B5D-9CB7-ABEF79BB4246}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
