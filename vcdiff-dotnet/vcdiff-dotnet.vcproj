@@ -190,6 +190,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\LowLevelManagedWrapper.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Stdafx.cpp"
 				>
 				<FileConfiguration
@@ -223,6 +227,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\LowLevelManagedWrapper.h"
+				>
+			</File>
 			<File
 				RelativePath=".\resource.h"
 				>

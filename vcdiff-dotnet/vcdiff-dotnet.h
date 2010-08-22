@@ -5,7 +5,7 @@
 using namespace System;
 using namespace System::IO;
 
-namespace vcdiffdotnet {
+namespace VCDiffDotNet {
 
 	public ref class Setting
 	{

@@ -14,7 +14,7 @@
 #include "UnmanagedClass.h"
 
 #pragma unmanaged
-namespace vcdiffdotnet {
+namespace VCDiffDotNet {
 	
 	VCDiffWrapper::VCDiffWrapper()
 	{
@@ -44,6 +44,39 @@ namespace vcdiffdotnet {
 		target_matches = target_matches;
 		max_target_file_size = max_target_file_size;
 		max_target_window_size = max_target_window_size;
+	};
+
+	void VCDiffWrapper::SetEncodingFormatFlags(bool checksum, bool interleaved, bool json, bool target_matches)
+	{
+		if (interleaved) {
+			format_flags |= open_vcdiff::VCD_FORMAT_INTERLEAVED;
+		}
+		if (checksum) {
+			format_flags |= open_vcdiff::VCD_FORMAT_CHECKSUM;
+		}
+		if (json) {
+			format_flags |= open_vcdiff::VCD_FORMAT_JSON;
+		}
+	};
+
+	void VCDiffWrapper::SetAllowVcdTargetFlag(bool value)
+	{
+		allow_vcd_target = value;
+	};
+
+	void VCDiffWrapper::SetTargetMatches(bool value)
+	{
+		target_matches = value;
+	};
+
+	void VCDiffWrapper::SetMaxTargetFileSize(size_t value)
+	{
+		max_target_file_size = value;
+	};
+
+	void VCDiffWrapper::SetMaxTargetWindowSize(size_t value)
+	{
+		max_target_window_size = value;
 	};
 
 	void VCDiffWrapper::SetSource(const char* sourceBuff, size_t sourceBuffSize)

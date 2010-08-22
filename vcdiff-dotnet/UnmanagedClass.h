@@ -11,7 +11,7 @@
 #include "google/vcdecoder.h"
 #include "google/vcencoder.h"
 
-namespace vcdiffdotnet {
+namespace VCDiffDotNet {
 		
 	class VCDiffWrapper
 	{
@@ -40,6 +40,13 @@ namespace vcdiffdotnet {
 					bool target_matches,
 					size_t max_target_file_size,
 					size_t max_target_window_size);
+
+
+		void SetEncodingFormatFlags(bool checksum, bool interleaved, bool json, bool target_matches);
+		void SetAllowVcdTargetFlag(bool value);
+		void SetTargetMatches(bool value);
+		void SetMaxTargetFileSize(size_t value);
+		void SetMaxTargetWindowSize(size_t value);
 
 		void SetSource(const char* sourceBuff, size_t sourceBuffSize);
 

@@ -9,7 +9,7 @@ using namespace System;
 using namespace System::IO;
 using namespace System::Runtime::InteropServices;
 
-namespace vcdiffdotnet {
+namespace VCDiffDotNet {
 
 	VCDiff::VCDiff()
 	{
