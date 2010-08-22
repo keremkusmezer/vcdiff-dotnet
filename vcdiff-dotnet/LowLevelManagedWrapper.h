@@ -20,6 +20,19 @@ namespace LowLevel {
 		bool StartEncoding([Out] array<Byte> ^%output);
 		bool EncodeChunk(array<Byte> ^target, [Out] array<Byte> ^%output);
 		bool FinishEncoding([Out] array<Byte> ^%output);
+
+	public:
+		~Encoder() // IDisposable
+		{
+			// release resource
+			vcdiffWrapper = NULL;
+		}
+
+	protected:
+		!Encoder() // Finalize
+		{
+			// release resource
+		}
 	};
 
 	public ref class Decoder
@@ -32,6 +45,19 @@ namespace LowLevel {
 		void StartDecoding();
 		bool DecodeChunk(array<Byte> ^patch, [Out] array<Byte> ^%target);
 		bool FinishDecoding();
+
+	public:
+		~Decoder() // IDisposable
+		{
+			// release resource
+			vcdiffWrapper = NULL;
+		}
+
+	protected:
+		!Decoder() // Finalize
+		{
+			// release resource
+		}
 	};
 
 	private ref class Tools sealed

@@ -18,21 +18,23 @@ namespace LowLevelApiUsage
             byte[] sourceFile = new byte[] { };
             List<byte> result = new List<byte>();
 
-            VCDiffDotNet.LowLevel.Encoder encoder = new VCDiffDotNet.LowLevel.Encoder();
-            encoder.InitEncoder(sourceFile, false, false, false, false);
+            using (VCDiffDotNet.LowLevel.Encoder encoder = new VCDiffDotNet.LowLevel.Encoder())
+            {
+                encoder.InitEncoder(sourceFile, false, false, false, false);
 
-            byte[] partialOutput;
-            encoder.StartEncoding(out partialOutput);
-            result.AddRange(partialOutput);
+                byte[] partialOutput;
+                encoder.StartEncoding(out partialOutput);
+                result.AddRange(partialOutput);
 
-            byte[] partOfTargetFile = new byte[] { };
-            encoder.EncodeChunk(partOfTargetFile, out partialOutput);
-            result.AddRange(partialOutput);
+                byte[] partOfTargetFile = new byte[] { };
+                encoder.EncodeChunk(partOfTargetFile, out partialOutput);
+                result.AddRange(partialOutput);
 
-            encoder.FinishEncoding(out partialOutput);
-            result.AddRange(partialOutput);
+                encoder.FinishEncoding(out partialOutput);
+                result.AddRange(partialOutput);
+            }
 
-            byte[] patch = result.ToArray();
+            byte[] patchFile = result.ToArray();
         }
 
         static void DecodingExample()
@@ -40,17 +42,21 @@ namespace LowLevelApiUsage
             byte[] sourceFile = new byte[] { };
             List<byte> result = new List<byte>();
 
-            VCDiffDotNet.LowLevel.Decoder decoder = new VCDiffDotNet.LowLevel.Decoder();
-            int maxSize = 1<<24;
-            decoder.InitDecoder(sourceFile, true, maxSize, maxSize);
-            decoder.StartDecoding();
+            using (VCDiffDotNet.LowLevel.Decoder decoder = new VCDiffDotNet.LowLevel.Decoder())
+            {
+                int maxSize = 1 << 24;
+                decoder.InitDecoder(sourceFile, true, maxSize, maxSize);
+                decoder.StartDecoding();
 
-            byte[] partialOutput;
-            byte[] partOfPatchFile = new byte[]{};
-            decoder.DecodeChunk(partOfPatchFile, out partialOutput);
-            result.AddRange(partialOutput);
+                byte[] partialOutput;
+                byte[] partOfPatchFile = new byte[] { };
+                decoder.DecodeChunk(partOfPatchFile, out partialOutput);
+                result.AddRange(partialOutput);
 
-            decoder.FinishDecoding();
+                decoder.FinishDecoding();
+            }
+
+            byte[] targetFile = result.ToArray();
         }
     }
 }
